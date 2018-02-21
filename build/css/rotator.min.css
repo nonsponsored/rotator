@@ -1,0 +1,58 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+img {
+  max-width: 100%; }
+
+main > *:not(:first-child) {
+  margin-top: 40px; }
+
+.rotator {
+  display: inline-flex;
+  overflow: hidden;
+  position: relative; }
+  .rotator__slide {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 500ms cubic-bezier(0.41, 0.18, 0.76, 0.96), z-index 500ms cubic-bezier(0.41, 0.18, 0.76, 0.96);
+    z-index: 1; }
+    .rotator__slide--current {
+      opacity: 1;
+      position: relative;
+      z-index: 2; }
+  .rotator > picture {
+    opacity: 0;
+    position: relative;
+    z-index: 0; }
+  .rotator__bullets {
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    z-index: 3; }
+    .rotator__bullets li {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      margin: 0 5px;
+      width: 40px;
+      overflow: hidden; }
+      .rotator__bullets li::after {
+        background-color: rgba(68, 68, 68, 0.5);
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 16px;
+        width: 16px; }
+    .rotator__bullets .rotator__bullet--active::after {
+      background-color: rgba(255, 255, 255, 0.8); }
+
+.js-rotator--active .rotator__slide--current {
+  position: absolute; }
