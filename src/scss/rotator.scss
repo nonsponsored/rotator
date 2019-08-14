@@ -54,15 +54,20 @@ main > *:not(:first-child) {
 		right: 0;
 		z-index: 3;
 	
-		li {
+		button {
 			align-items: center;
+			background: none;
+			border: 0;
 			cursor: pointer;
 			display: flex;
+			font-size: 0;
 			height: 40px;
 			justify-content: center;
 			margin: 0 5px;
-			width: 40px;
 			overflow: hidden;
+			text-indent: 100%;
+			white-space: nowrap;
+			width: 40px;			
 		
 			&::after {
 				background-color: rgba(68,68,68,0.5);
@@ -73,12 +78,12 @@ main > *:not(:first-child) {
 				width: 16px;
 			}
 		}
-		
+			
 		// Active Bullet
 		.rotator__bullet--active::after {
 			background-color: rgba(255,255,255,0.8);
 		}
-	}
+	}	
 }
 
 

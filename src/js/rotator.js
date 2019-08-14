@@ -19,18 +19,21 @@ var manageRotator = function(trigger) {
 			rotatorBullets.className = 'rotator__bullets';
 			rotator.appendChild(rotatorBullets);
 			for (i = 1; i <= rotatorSlideCount; i++) {
-				var li = document.createElement('li');
-				rotatorBullets.appendChild(li);
+				var li = document.createElement('li'),
+					button = document.createElement('button');
+				button.innerHTML = 'Slide '+i;
+				rotatorBullets.appendChild(li).appendChild(button);
 			}
 			var rotatorBulletList = rotator.querySelector('.rotator__bullets'),
-				rotatorBullet = rotatorBulletList.querySelectorAll('li');
+				rotatorBullet = rotatorBulletList.querySelectorAll('button');
 			rotatorBullet[0].classList.add('rotator__bullet--active');
 			
 			// add click event
 			rotatorBulletList.addEventListener('click', function (e) {
-				if(e.target && e.target.nodeName === 'LI') { // could use e.target.matches('LI' if don't need IE11 support
+				if(e.target && e.target.nodeName === 'BUTTON') { // could use e.target.matches('LI' if don't need IE11 support
 					// get index of li
-					var index = Array.prototype.indexOf.call(this.children, e.target);
+					var index = Array.prototype.indexOf.call(this.children, e.target.parentElement);
+					
 					// remove current slide class
 					Array.from( rotatorSlide ).forEach(function(slide){
 				    	slide.classList.remove('rotator__slide--current');
